@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1DA1F2;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    section {
+      display: flex;
+      justify-content: space-around;
+      padding: 2em;
+    }
+    #twitter-content {
+      width: 60%;
+    }
+    #twitter-content img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Social Media Dashboard</h1>
+  </header>
+  <section>
+    <div id="twitter-content">
+      <h2>Twitter Feed</h2>
+      <!-- Twitter content will be dynamically loaded here -->
+    </div>
+    <!-- Add sections for other social media platforms here -->
+  </section>
+  <script>
+    // Simulate Twitter API response
+    const twitterData = [
+      {
+        username: 'user1',
+        tweet: 'This is a sample tweet!',
+        timestamp: '2 hours ago',
+        image: 'tweet-image.jpg'
+      },
+      // Add more tweet objects as needed
+    ];
+
+    const twitterContent = document.getElementById('twitter-content');
+
+    // Function to display Twitter content
+    function displayTwitterContent() {
+      twitterData.forEach(tweet => {
+        const tweetContainer = document.createElement('div');
+        tweetContainer.innerHTML = `
+          <p><strong>${tweet.username}</strong></p>
+          <p>${tweet.tweet}</p>
+          <p>${tweet.timestamp}</p>
+          <img src="${tweet.image}" alt="Tweet Image">
+          <hr>
+        `;
+        twitterContent.appendChild(tweetContainer);
+      });
+    }
+
+    // Call the function to display Twitter content
+    displayTwitterContent();
+  </script>
+</body>
+</html>
